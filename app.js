@@ -25,7 +25,7 @@ app.use(express.json());
 // Define your API routes and CRUD operations here
 
 // Create a new person
-app.post('/api/persons', (req, res) => {
+app.post('/api', (req, res) => {
   const { name, value } = req.body;
 
   if (!name) {
@@ -46,7 +46,7 @@ app.post('/api/persons', (req, res) => {
 });
 
 // Read a person by ID
-app.get('/api/persons/:id', (req, res) => {
+app.get('/api/:id', (req, res) => {
   const personId = req.params.id;
 
   const query = 'SELECT * FROM persons WHERE id = ?';
@@ -67,7 +67,7 @@ app.get('/api/persons/:id', (req, res) => {
 });
 
 // Update a person by ID
-app.put('/api/persons/:id', (req, res) => {
+app.put('/api/:id', (req, res) => {
   const personId = req.params.id;
   const { name, value } = req.body;
 
@@ -93,7 +93,7 @@ app.put('/api/persons/:id', (req, res) => {
 });
 
 // Delete a person by ID
-app.delete('/api/persons/:id', (req, res) => {
+app.delete('/api/:id', (req, res) => {
   const personId = req.params.id;
 
   const query = 'DELETE FROM persons WHERE id = ?';
